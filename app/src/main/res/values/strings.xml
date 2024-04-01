@@ -1,32 +1,57 @@
 <resources>
     <string name="app_name">Andrei_05</string>
 
-    <string name="rule_name_1">Andrei_05</string>
-    <string name="rule_1">Andrei_05</string>
-    <string name="rule_name_2">Andrei_05</string>
-    <string name="rule_2">Andrei_05</string>
-    <string name="rule_name_3">Andrei_05</string>
-    <string name="rule_3">Andrei_05</string>
-    <string name="rule_name_4_1">Andrei_05</string>
-    <string name="rule_4_1">Andrei_05</string>
-    <string name="rule_name_4_2">Andrei_05</string>
-    <string name="rule_4_2">Andrei_05</string>
-    <string name="rule_name_4_3">Andrei_05</string>
-    <string name="rule_4_3">Andrei_05</string>
-    <string name="rule_name_4_4">Andrei_05</string>
-    <string name="rule_4_4">Andrei_05</string>
-    <string name="rule_name_4_5">Andrei_05</string>
-    <string name="rule_4_5">Andrei_05</string>
-    <string name="rule_name_4_6">Andrei_05</string>
-    <string name="rule_4_6">Andrei_05</string>
-    <string name="rule_name_4_7">Andrei_05</string>
-    <string name="rule_4_7">Andrei_05</string>
-    <string name="rule_name_4_8">Andrei_05</string>
-    <string name="rule_4_8">Andrei_05</string>
-    <string name="rule_name_4_9">Andrei_05</string>
-    <string name="rule_4_9">Andrei_05</string>
-    <string name="rule_name_4_10">Andrei_05</string>
-    <string name="rule_4_10">Andrei_05</string>
-    <string name="rule_name_5">Andrei_05</string>
-    <string name="rule_5">Andrei_05</string>
+    <string name="rule_name_1">Number of cards</string>
+    <string name="rule_1">Poker is played with different decks of 32, 36 or 54 cards, but the most commonly used is a standard deck of 52 sheets with equal suits.</string>
+    <string name="rule_name_2">Number of participants</string>
+    <string name="rule_2">Poker is played by several participants, from 2 or more. Usually played by up to 10 participants.</string>
+    <string name="rule_name_3">Ace in poker</string>
+    <string name="rule_3">Card values are arranged in descending order from the ace and onwards (king, queen, jack, 10, …, 2). Ace can be considered both as the lowest card to form a sequence (straight) up to 5 inclusive, and as the highest card (in the combination Ace-King-Dama-Valet-10).</string>
+    <string name="rule_name_4">Poker combinations</string>
+    <string name="rule_name_41">Possible combinations of cards in descending order of value:</string>
+    <string name="rule_4_1">Royal flush - 5 high cards of the same suit starting with an Ace, for example: T♥️ K♥️ D♥️ B♥️ 10♥️ This is the strongest combination in the game.</string>
+    <string name="rule_4_2">Straight flush - Any five cards of the same suit in order, for example: 9♠️ 8♠️ 7♠️ 6♠️ 5♠️. The lowest straight flush (Ace to Five) is sometimes called a "steel wheel".</string>
+    <string name="rule_4_3">Four of a kind - Four cards of the same value, e.g: 3♥️ 3♦️ 3♣️ 3♠️. Cards from the table and hand may be stacked, e.g. 2+6.</string>
+    <string name="rule_4_4">Full House - One set and one pair, e.g: 10♥️ 10♦️ 10♠️ 8♣️ 8♥️. Cards from the table may be stacked, e.g. 2+6.</string>
+    <string name="rule_4_5">Flush - Five cards of the same suit, e.g: K♠️ C♠️ 8♠️ 4♠️ 3♠️.</string>
+    <string name="rule_4_6">Straight - Five cards in order of any suit, for example: 5♦️ 4♥️ 3♠️ 2♦️ Т♦️. The ace can both start and end the order.</string>
+    <string name="rule_4_7">Three of a kind - Three cards of the same value, e.g: 7♣️ 7♥️ 7♠️ .</string>
+    <string name="rule_4_8">Two pairs - Two pairs of cards, e.g: 8♣️ 8♠️ 4♥️ 4♣️.</string>
+    <string name="rule_4_9">Pair (pair of kings) - Two cards of the same value, e.g: 9♥️ 9♠️.</string>
+    <string name="rule_4_10">High card - None of the above combinations.</string>
+    <string name="rule_name_5">Betting</string>
+    <string name="rule_5">In poker, betting occurs in several stages, depending on the type of game. The main stages of betting in classic Texas Hold\'em (but they may vary in other types of poker) include:\nDealing the cards: Players are dealt cards. In Texas Hold\'em, each player receives two closed cards (cards that are visible only to themselves).\nPreflop: The first round of betting begins with the player to the left of the dealer (or the dealer button). Players have several options: to raise the bet, to call (place the same amount as the previous player), to fold (discard their cards), or to check (skip a turn if there has been no raise before them).\nFlop: After completing the betting on the preflop, the dealer places three common cards on the table (the flop). Players start betting again, starting with the player to the left of the dealer. They can bet, check, raise, or fold.\nTurn betting: After completing the betting on the flop, the dealer places the fourth common card (the turn). Betting starts again.\nRiver betting: After completing the betting on the turn, the dealer places the last common card (the river). Betting starts again.\nShowdown: If after the betting on the river there are two or more players left in the game, they reveal their cards. The player with the strongest card combination wins. If players have the same combinations, the pot is split between them.\nThis is the basic process of betting in Texas Hold'em. In other types of poker, there may be differences in rules and betting stages.</string>
+
+    <string name="test_1_quest">1) What is the most common number of cards in a deck?</string>
+    <string name="test_1_a1">A) 32</string>
+    <string name="test_1_a2">B) 52</string>
+    <string name="test_1_a3">C) 54</string>
+    <string name="test_2_quest">2) What is the minimum number of poker players?</string>
+    <string name="test_2_a1">A) 4</string>
+    <string name="test_2_a2">B) 10</string>
+    <string name="test_2_a3">C) 2</string>
+    <string name="test_3_quest">3) How is an ace considered in poker?</string>
+    <string name="test_3_a1">A) Junior card</string>
+    <string name="test_3_a2">B) Senior card</string>
+    <string name="test_3_a3">C) Junior and senior card</string>
+    <string name="test_4_quest">4) Choose an existing combination in poker</string>
+    <string name="test_4_a1">A) Senior card</string>
+    <string name="test_4_a2">B) Flush (верно)</string>
+    <string name="test_4_a3">C) Top flush</string>
+    <string name="test_5_quest">5) After completing the betting on the flop, the dealer places the fourth common card (the turn). Betting starts again.</string>
+    <string name="test_5_a1">A) Turn betting</string>
+    <string name="test_5_a2">B) River betting</string>
+    <string name="test_5_a3">C) Flop</string>
+
+    <string name="list_of_rules">List of rules</string>
+    <string name="list_of_tests">List of tests</string>
+    <string name="info">INFO</string>
+    <string name="info_ct">Poker is a game of chance! We recommend that beginners do not play serious poker, and we do not encourage you to play poker. We are not encouraging you to play poker for real money.\nPoker is a card game where the goal is to collect a winning combination or force all opponents to stop participating in the game.\nThis app teaches the rules of poker games.\nLearn the rules and take the tests.\nGo through all the rules and tests to become an experienced poker expert.</string>
+    <string name="rule">RULE #</string>
+    <string name="pass_test">Pass a test</string>
+    <string name="test">TEST #</string>
+    <string name="correct">Correct answer!</string>
+    <string name="wrong">Wrong answer!</string>
+
+
 </resources>
