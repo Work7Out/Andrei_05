@@ -1,9 +1,9 @@
 package com.propokeignintion.cardrules.ui
 
+import android.content.res.Configuration
 import android.media.MediaPlayer
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -33,14 +34,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.propokeignintion.cardrules.R
-import com.propokeignintion.cardrules.domain.utils.INFO_SCREEN
-import com.propokeignintion.cardrules.domain.utils.LIST_RULE_SCREEN
-import com.propokeignintion.cardrules.domain.utils.LIST_TESTS_SCREEN
-import com.propokeignintion.cardrules.ui.state.MainEvent
 import com.propokeignintion.cardrules.ui.theme.black
 import com.propokeignintion.cardrules.ui.theme.brushYellow
 import com.propokeignintion.cardrules.ui.theme.white
-import com.propokeignintion.cardrules.ui.uikit.CustomButton20dp
 
 @Composable
 fun InfoScreen(
@@ -49,6 +45,16 @@ fun InfoScreen(
     isSound: Boolean,
     mediaPlayer: MediaPlayer,
 ) {
+    val configuration = LocalConfiguration.current
+    val horizontalPadding = when (configuration.orientation) {
+        Configuration.ORIENTATION_LANDSCAPE -> {
+            60.dp
+        }
+        else -> {
+            16.dp
+        }
+    }
+
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -106,7 +112,7 @@ fun InfoScreen(
             Spacer(modifier = modifier.height(20.dp))
             Column(
                 modifier = modifier
-                    .padding(16.dp)
+                    .padding(vertical = 16.dp, horizontal = horizontalPadding)
                     .clip(shape = RoundedCornerShape(15.dp))
                     .fillMaxWidth()
                     .background(brush = brushYellow)

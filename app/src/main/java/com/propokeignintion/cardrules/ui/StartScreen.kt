@@ -1,5 +1,6 @@
 package com.propokeignintion.cardrules.ui
 
+import android.content.res.Configuration
 import android.media.MediaPlayer
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -17,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -36,6 +38,16 @@ fun StartScreen(
     mediaPlayer: MediaPlayer,
     event: (MainEvent) -> Unit
 ) {
+    val configuration = LocalConfiguration.current
+    val screenWidth = configuration.screenWidthDp.dp
+    val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+
+    val horizontalPadding = if (isLandscape) {
+        (screenWidth - screenWidth / 2.19f) / 2
+    } else {
+        20.dp
+    }
+
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -86,7 +98,7 @@ fun StartScreen(
         Column (
             modifier = modifier
                 .align(alignment = Alignment.Center)
-                .padding(16.dp)
+                .padding(vertical = 16.dp, horizontal = horizontalPadding)
                 .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
         ){

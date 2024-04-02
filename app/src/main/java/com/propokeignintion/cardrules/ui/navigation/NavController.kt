@@ -14,6 +14,7 @@ import androidx.navigation.navArgument
 import com.propokeignintion.cardrules.R
 import com.propokeignintion.cardrules.domain.utils.START_SCREEN
 import com.propokeignintion.cardrules.ui.InfoScreen
+import com.propokeignintion.cardrules.ui.ListRulesScreen
 import com.propokeignintion.cardrules.ui.StartScreen
 import com.propokeignintion.cardrules.ui.state.MainViewModel
 
@@ -58,9 +59,11 @@ fun NavController(
 
         composable(
             NavigationDestination.ListRulesDestination.destination,
-
             ) {
-
+            ListRulesScreen(
+                navController = navController,
+                isSound = state.value.isSoundOn,
+                mediaPlayer = mediaPlayer)
         }
         composable(
             NavigationDestination.TestDestination.destination,
