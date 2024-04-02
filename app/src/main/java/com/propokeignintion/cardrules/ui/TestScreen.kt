@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.media.MediaPlayer
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -98,7 +99,7 @@ fun TestScreen(
                         }
                         Text(
                             modifier = modifier.align(Alignment.Center),
-                            text = "${stringResource(id = R.string.test)} #$indexTest",
+                            text = "${stringResource(id = R.string.test)} $indexTest",
                             style = TextStyle(
                                 fontSize = 20.sp,
                                 fontWeight = FontWeight(400),
@@ -130,7 +131,7 @@ fun TestScreen(
                         Spacer(modifier = modifier.width(10.dp))
                         Text(
                             modifier = modifier,
-                            text = "${stringResource(id = R.string.test)} #$indexTest",
+                            text = "${stringResource(id = R.string.test)} $indexTest",
                             style = TextStyle(
                                 fontSize = 20.sp,
                                 fontWeight = FontWeight(400),
@@ -177,11 +178,14 @@ fun TestScreen(
                     modifier = modifier
                         .padding(innerPadding)
                         .fillMaxWidth()
-                        .padding(16.dp),
+                        .padding(horizontal = 16.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Column(
-                        modifier = modifier.weight(1f)
+                        modifier = modifier
+                            .fillMaxHeight(0.8f)
+                            .weight(1f),
+                        verticalArrangement = Arrangement.SpaceBetween,
                     ) {
                         Text(
                             modifier = modifier,
@@ -223,8 +227,10 @@ fun TestScreen(
                     Spacer(modifier = modifier.width(10.dp))
                     Column(
                         modifier = modifier
-                            .weight(1f),
-                        horizontalAlignment = Alignment.CenterHorizontally
+                            .weight(1f)
+                            .fillMaxHeight(0.8f),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center,
                     ) {
                         Box(
                             modifier = modifier

@@ -39,12 +39,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.propokeignintion.cardrules.R
 import com.propokeignintion.cardrules.data.mock_data.rules
-import com.propokeignintion.cardrules.domain.utils.RULE_SCREEN
 import com.propokeignintion.cardrules.domain.utils.TEST_SCREEN
 import com.propokeignintion.cardrules.ui.theme.black
 import com.propokeignintion.cardrules.ui.theme.brushYellow
 import com.propokeignintion.cardrules.ui.theme.white
-import com.propokeignintion.cardrules.ui.uikit.CustomButton20dp
 import com.propokeignintion.cardrules.ui.uikit.CustomButtonImageText
 import com.propokeignintion.cardrules.ui.uikit.CustomButtonTextImage20dp
 
@@ -100,7 +98,7 @@ fun RuleScreen(
                         }
                         Text(
                             modifier = modifier.align(Alignment.Center),
-                            text = "${stringResource(id = R.string.rule)} #$indexRule",
+                            text = "${stringResource(id = R.string.rule)} $indexRule",
                             style = TextStyle(
                                 fontSize = 20.sp,
                                 fontWeight = FontWeight(400),
@@ -132,7 +130,7 @@ fun RuleScreen(
                         Spacer(modifier = modifier.width(10.dp))
                         Text(
                             modifier = modifier,
-                            text = "${stringResource(id = R.string.rule)} #$indexRule",
+                            text = "${stringResource(id = R.string.rule)} $indexRule",
                             style = TextStyle(
                                 fontSize = 20.sp,
                                 fontWeight = FontWeight(400),
@@ -187,13 +185,25 @@ fun RuleScreen(
                             .fillMaxHeight(),
                         verticalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Column(
-                            modifier = modifier
+                        val customMd = if (indexRule == 5) {
+                            modifier
+                                .clip(shape = RoundedCornerShape(15.dp))
+                                .fillMaxWidth()
+                                .fillMaxHeight(0.75f)
+                                .background(brush = brushYellow)
+                                .padding(20.dp)
+                                .verticalScroll(rememberScrollState())
+                        }
+                        else {
+                            modifier
                                 .clip(shape = RoundedCornerShape(15.dp))
                                 .fillMaxWidth()
                                 .background(brush = brushYellow)
                                 .padding(20.dp)
-                                .verticalScroll(rememberScrollState()),
+                                .verticalScroll(rememberScrollState())
+                        }
+                        Column(
+                            modifier = customMd,
                         ) {
                             Text(
                                 modifier = modifier,
@@ -204,6 +214,9 @@ fun RuleScreen(
                                     color = black
                                 )
                             )
+                        }
+                        if (indexRule == 5) {
+                            Spacer(modifier = modifier.height(5.dp))
                         }
                         CustomButtonTextImage20dp(
                             modifier = modifier,

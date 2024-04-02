@@ -96,7 +96,8 @@ fun ListRulesScreen(
                         )
                     }
                     Text(
-                        modifier = modifier.align(Alignment.Center),
+                        modifier = modifier
+                            .align(Alignment.Center),
                         text = stringResource(id = R.string.list_of_rules),
                         style = TextStyle(
                             fontSize = 20.sp,
@@ -139,10 +140,9 @@ fun ListRulesScreen(
                     )
                 }
             }
-            Spacer(modifier = modifier.height(20.dp))
             Column(
                 modifier = modifier
-                    .padding(vertical = 16.dp, horizontal = horizontalPadding)
+                    .padding(horizontal = horizontalPadding)
                     .fillMaxWidth()
                     .verticalScroll(rememberScrollState()),
             ) {

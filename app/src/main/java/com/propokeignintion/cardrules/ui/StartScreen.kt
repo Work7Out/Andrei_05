@@ -103,7 +103,7 @@ fun StartScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ){
             CustomButton20dp(
-                title = stringResource(id = R.string.list_of_rules),
+                title = stringResource(id = R.string.list_of_rules_1),
                 onClick = {
                     if (isSound) {
                         mediaPlayer.start()
@@ -113,7 +113,7 @@ fun StartScreen(
             )
             Spacer(modifier = modifier.height(10.dp))
             CustomButton20dp(
-                title = stringResource(id = R.string.list_of_tests),
+                title = stringResource(id = R.string.list_of_tests_1),
                 onClick = {
                     if (isSound) {
                         mediaPlayer.start()

@@ -47,7 +47,7 @@ fun CustomVariantUnswear(
             .clickable(onClick = onClick)
             .fillMaxWidth()
             .background(brush = brushYellow)
-            .padding(vertical = 10.dp)
+            .padding(vertical = 5.dp)
     ) {
         Row(
             modifier = modifier
