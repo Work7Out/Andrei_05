@@ -14,6 +14,6 @@ sealed class NavigationDestination (val destination: String){
     data object ListTestsDestination: NavigationDestination(LIST_TESTS_SCREEN)
     data object ListRulesDestination: NavigationDestination(LIST_RULE_SCREEN)
     data object RuleDestination: NavigationDestination("$RULE_SCREEN/{idRule}")
-    data object Rule4Destination: NavigationDestination(RULE_4_SCREEN)
+    data object Rule4Destination: NavigationDestination("$RULE_4_SCREEN/{idRule}")
     data object TestDestination: NavigationDestination("$TEST_SCREEN/{idTest}")
 }

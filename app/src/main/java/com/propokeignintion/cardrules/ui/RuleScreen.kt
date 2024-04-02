@@ -57,7 +57,6 @@ fun RuleScreen(
     mediaPlayer: MediaPlayer,
 ) {
     val configuration = LocalConfiguration.current
-    val screenWidth = configuration.screenWidthDp.dp
     val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
     val rule = rules.first { it.id == indexRule }

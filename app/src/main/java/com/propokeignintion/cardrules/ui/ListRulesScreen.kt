@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.propokeignintion.cardrules.R
+import com.propokeignintion.cardrules.domain.utils.RULE_4_SCREEN
 import com.propokeignintion.cardrules.domain.utils.RULE_SCREEN
 import com.propokeignintion.cardrules.ui.theme.black
 import com.propokeignintion.cardrules.ui.theme.brushYellow
@@ -185,7 +186,7 @@ fun ListRulesScreen(
                         if (isSound) {
                             mediaPlayer.start()
                         }
-                        navController.navigate("$RULE_SCREEN/4")
+                        navController.navigate("$RULE_4_SCREEN/4")
                     }
                 )
                 Spacer(modifier = modifier.height(5.dp))
