@@ -18,6 +18,7 @@ import com.propokeignintion.cardrules.ui.ListRulesScreen
 import com.propokeignintion.cardrules.ui.Rule4Screen
 import com.propokeignintion.cardrules.ui.RuleScreen
 import com.propokeignintion.cardrules.ui.StartScreen
+import com.propokeignintion.cardrules.ui.TestScreen
 import com.propokeignintion.cardrules.ui.state.MainViewModel
 
 @Composable
@@ -76,7 +77,15 @@ fun NavController(
             }
             )
         ) {
-            //   Profile(navController, it.arguments?.getString("userId"))
+            val indexTest = it.arguments?.getInt("idTest")
+            if (indexTest != null) {
+                TestScreen(
+                    indexTest = indexTest,
+                    navController = navController,
+                    isSound = state.value.isSoundOn,
+                    mediaPlayer = mediaPlayer
+                )
+            }
         }
         composable(
             NavigationDestination.Rule4Destination.destination,
