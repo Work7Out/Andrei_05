@@ -13,6 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.propokeignintion.cardrules.R
 import com.propokeignintion.cardrules.domain.utils.START_SCREEN
+import com.propokeignintion.cardrules.ui.InfoScreen
 import com.propokeignintion.cardrules.ui.StartScreen
 import com.propokeignintion.cardrules.ui.state.MainViewModel
 
@@ -44,7 +45,10 @@ fun NavController(
            )
         }
         composable(NavigationDestination.InfoDestination.destination) {
-
+            InfoScreen(
+                navController = navController,
+                isSound = state.value.isSoundOn,
+                mediaPlayer = mediaPlayer)
         }
         composable(
             NavigationDestination.ListTestsDestination.destination,

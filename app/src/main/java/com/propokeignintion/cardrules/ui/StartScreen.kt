@@ -11,10 +11,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -37,11 +39,17 @@ fun StartScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .padding(16.dp)
     ) {
+        Image(
+            modifier = modifier
+                .fillMaxSize(),
+            painter = painterResource(id = R.drawable.background),
+            contentDescription = "",
+            contentScale = ContentScale.FillBounds)
         Row(
             modifier = modifier
                 .align(alignment = Alignment.TopCenter)
+                .padding(16.dp)
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
@@ -53,10 +61,12 @@ fun StartScreen(
                 event(MainEvent.SetSound)
             }) {
                 Image(
+                    modifier = modifier.size(40.dp),
                     painter = if (isSound) painterResource(id = R.drawable.media_on) else painterResource(
                         id = R.drawable.media_off
                     ),
-                    contentDescription = ""
+                    contentDescription = "",
+                    contentScale = ContentScale.FillBounds
                 )
             }
             TextButton(onClick = {
@@ -66,14 +76,17 @@ fun StartScreen(
                 navController.navigate(INFO_SCREEN)
             }) {
                 Image(
+                    modifier = modifier.size(40.dp),
                     painter =  painterResource( id = R.drawable.info_bt),
-                    contentDescription = ""
+                    contentDescription = "",
+                    contentScale = ContentScale.FillBounds
                 )
             }
         }
         Column (
             modifier = modifier
                 .align(alignment = Alignment.Center)
+                .padding(16.dp)
                 .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
         ){
