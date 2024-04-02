@@ -17,5 +17,6 @@ val white = Color(0xFFFFFFFF)
 val black = Color(0xFF201F1F)
 val green = Color(0xFF0CF13F)
 val red = Color(0xFFF71919)
+val darkGreen = Color(0xFF043806)
 
 val brushYellow = Brush.horizontalGradient(listOf(yellow, darkYellow))

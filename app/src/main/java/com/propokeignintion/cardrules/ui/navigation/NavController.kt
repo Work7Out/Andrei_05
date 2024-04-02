@@ -15,6 +15,7 @@ import com.propokeignintion.cardrules.R
 import com.propokeignintion.cardrules.domain.utils.START_SCREEN
 import com.propokeignintion.cardrules.ui.InfoScreen
 import com.propokeignintion.cardrules.ui.ListRulesScreen
+import com.propokeignintion.cardrules.ui.ListTestsScreen
 import com.propokeignintion.cardrules.ui.Rule4Screen
 import com.propokeignintion.cardrules.ui.RuleScreen
 import com.propokeignintion.cardrules.ui.StartScreen
@@ -58,7 +59,11 @@ fun NavController(
         composable(
             NavigationDestination.ListTestsDestination.destination,
         ) {
-
+            ListTestsScreen(
+                navController = navController,
+                isSound = state.value.isSoundOn,
+                mediaPlayer = mediaPlayer
+            )
         }
 
         composable(
