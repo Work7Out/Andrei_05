@@ -63,7 +63,7 @@ fun CustomVariantUnswear(
             Text(
                 text = title,
                 style = TextStyle(
-                    fontSize = 14.sp,
+                    fontSize = 12.sp,
                     fontFamily = FontFamily(Font(R.font.krona_one)),
                     fontWeight = FontWeight(400),
                     color = white

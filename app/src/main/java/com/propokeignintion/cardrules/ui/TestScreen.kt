@@ -16,7 +16,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -188,8 +190,8 @@ fun TestScreen(
                 ) {
                     Column(
                         modifier = modifier
-                            .fillMaxHeight(0.8f)
-                            .weight(1f),
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState()),
                         verticalArrangement = Arrangement.SpaceBetween,
                     ) {
                         Text(
@@ -202,7 +204,7 @@ fun TestScreen(
                                 color = white
                             )
                         )
-                        Spacer(modifier = modifier.height(20.dp))
+                        Spacer(modifier = modifier.height(10.dp))
                         CustomVariantUnswear(
                             title = stringResource(id = test.answer1),
                             isCorrect = selectedAnswer.intValue == test.currentAnswer && selectedAnswer.intValue == test.answer1,

@@ -136,7 +136,6 @@ fun ListTestsScreen(
                     )
                 }
             }
-            Spacer(modifier = modifier.height(20.dp))
             Column(
                 modifier = modifier
                     .padding(horizontal = horizontalPadding)
