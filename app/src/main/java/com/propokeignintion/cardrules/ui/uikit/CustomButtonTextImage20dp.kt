@@ -17,9 +17,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.propokeignintion.cardrules.R
 import com.propokeignintion.cardrules.ui.theme.brushYellow
 import com.propokeignintion.cardrules.ui.theme.white
 
@@ -37,7 +40,7 @@ fun CustomButtonTextImage20dp(
         .clickable { if (isEnabled) onClick() }
         .fillMaxWidth()
         .background(brush = brushYellow)
-        .padding(vertical = 10.dp)) {
+        .padding(vertical = 5.dp)) {
         Row (
             modifier = Modifier
                 .fillMaxWidth()
@@ -50,6 +53,7 @@ fun CustomButtonTextImage20dp(
                 text = title,
                 style = TextStyle(
                     fontSize = 20.sp,
+                    fontFamily = FontFamily(Font(R.font.krona_one)),
                     fontWeight = FontWeight(400),
                     color = if (isEnabled) white else white.copy(alpha = 0.5f)
                 )

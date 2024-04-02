@@ -25,6 +25,8 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -93,6 +95,7 @@ fun ListTestsScreen(
                         text = stringResource(id = R.string.list_of_tests),
                         style = TextStyle(
                             fontSize = 20.sp,
+                            fontFamily = FontFamily(Font(R.font.krona_one)),
                             fontWeight = FontWeight(400),
                             textAlign = TextAlign.Center,
                             color = white
@@ -125,6 +128,7 @@ fun ListTestsScreen(
                         text = stringResource(id = R.string.list_of_tests),
                         style = TextStyle(
                             fontSize = 20.sp,
+                            fontFamily = FontFamily(Font(R.font.krona_one)),
                             fontWeight = FontWeight(400),
                             textAlign = TextAlign.Center,
                             color = white
@@ -135,7 +139,7 @@ fun ListTestsScreen(
             Spacer(modifier = modifier.height(20.dp))
             Column(
                 modifier = modifier
-                    .padding(vertical = 16.dp, horizontal = horizontalPadding)
+                    .padding(horizontal = horizontalPadding)
                     .fillMaxWidth()
                     .verticalScroll(rememberScrollState()),
             ) {

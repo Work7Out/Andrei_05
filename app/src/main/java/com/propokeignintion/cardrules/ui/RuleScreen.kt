@@ -32,6 +32,8 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -101,6 +103,7 @@ fun RuleScreen(
                             text = "${stringResource(id = R.string.rule)} $indexRule",
                             style = TextStyle(
                                 fontSize = 20.sp,
+                                fontFamily = FontFamily(Font(R.font.krona_one)),
                                 fontWeight = FontWeight(400),
                                 textAlign = TextAlign.Center,
                                 color = white
@@ -133,6 +136,7 @@ fun RuleScreen(
                             text = "${stringResource(id = R.string.rule)} $indexRule",
                             style = TextStyle(
                                 fontSize = 20.sp,
+                                fontFamily = FontFamily(Font(R.font.krona_one)),
                                 fontWeight = FontWeight(400),
                                 textAlign = TextAlign.Center,
                                 color = white
@@ -210,6 +214,7 @@ fun RuleScreen(
                                 text = stringResource(id = rule.content),
                                 style = TextStyle(
                                     fontSize = 12.sp,
+                                    fontFamily = FontFamily(Font(R.font.krona_one)),
                                     fontWeight = FontWeight(400),
                                     color = black
                                 )
@@ -262,6 +267,7 @@ fun RuleScreen(
                             text = stringResource(id = rule.content),
                             style = TextStyle(
                                 fontSize = 12.sp,
+                                fontFamily = FontFamily(Font(R.font.krona_one)),
                                 fontWeight = FontWeight(400),
                                 color = black
                             )

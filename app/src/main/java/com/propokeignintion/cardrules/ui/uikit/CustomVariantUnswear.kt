@@ -18,9 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.propokeignintion.cardrules.R
 import com.propokeignintion.cardrules.ui.theme.black
 import com.propokeignintion.cardrules.ui.theme.brushYellow
 import com.propokeignintion.cardrules.ui.theme.green
@@ -61,6 +64,7 @@ fun CustomVariantUnswear(
                 text = title,
                 style = TextStyle(
                     fontSize = 14.sp,
+                    fontFamily = FontFamily(Font(R.font.krona_one)),
                     fontWeight = FontWeight(400),
                     color = white
                 )
