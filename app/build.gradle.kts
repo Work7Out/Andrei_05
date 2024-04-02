@@ -76,6 +76,8 @@ dependencies {
     implementation (libs.androidx.hilt.navigation.compose)
 
     implementation (libs.accompanist.systemuicontroller)
+
+    implementation("com.onesignal:OneSignal:5.1.7")
 }
 
 kapt{
