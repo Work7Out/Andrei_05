@@ -4,5 +4,6 @@ data class Rule(
     val id: Int,
     val title:Int,
     val content: Int,
-    val image: Int
+    val image: Int,
+    val icon: Int,
 )

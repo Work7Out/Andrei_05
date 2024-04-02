@@ -15,6 +15,7 @@ import com.propokeignintion.cardrules.R
 import com.propokeignintion.cardrules.domain.utils.START_SCREEN
 import com.propokeignintion.cardrules.ui.InfoScreen
 import com.propokeignintion.cardrules.ui.ListRulesScreen
+import com.propokeignintion.cardrules.ui.RuleScreen
 import com.propokeignintion.cardrules.ui.StartScreen
 import com.propokeignintion.cardrules.ui.state.MainViewModel
 
@@ -38,18 +39,19 @@ fun NavController(
 
     NavHost(navController = navController, startDestination = startDestination) {
         composable(NavigationDestination.StartDestination.destination) {
-           StartScreen(
-               mediaPlayer = mediaPlayer,
-               navController = navController,
-               isSound = state.value.isSoundOn,
-               event = onEvent
-           )
+            StartScreen(
+                mediaPlayer = mediaPlayer,
+                navController = navController,
+                isSound = state.value.isSoundOn,
+                event = onEvent
+            )
         }
         composable(NavigationDestination.InfoDestination.destination) {
             InfoScreen(
                 navController = navController,
                 isSound = state.value.isSoundOn,
-                mediaPlayer = mediaPlayer)
+                mediaPlayer = mediaPlayer
+            )
         }
         composable(
             NavigationDestination.ListTestsDestination.destination,
@@ -59,11 +61,12 @@ fun NavController(
 
         composable(
             NavigationDestination.ListRulesDestination.destination,
-            ) {
+        ) {
             ListRulesScreen(
                 navController = navController,
                 isSound = state.value.isSoundOn,
-                mediaPlayer = mediaPlayer)
+                mediaPlayer = mediaPlayer
+            )
         }
         composable(
             NavigationDestination.TestDestination.destination,
@@ -71,6 +74,11 @@ fun NavController(
                 type = NavType.IntType
             }
             )
+        ) {
+            //   Profile(navController, it.arguments?.getString("userId"))
+        }
+        composable(
+            NavigationDestination.Rule4Destination.destination,
         ) {
 
         }
@@ -80,7 +88,15 @@ fun NavController(
                 type = NavType.IntType
             })
         ) {
-
+            val indexRule = it.arguments?.getInt("idRule")
+            if (indexRule != null) {
+                RuleScreen(
+                    indexRule = indexRule,
+                    navController = navController,
+                    isSound = state.value.isSoundOn,
+                    mediaPlayer = mediaPlayer
+                )
+            }
         }
     }
 }
