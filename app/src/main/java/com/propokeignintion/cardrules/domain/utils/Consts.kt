@@ -11,3 +11,7 @@ const val RULE_4_SCREEN = "Rule4Screen"
 
 const val SHARED_DATA = "shared_data"
 const val SHARED_SOUND = "shared_sound"
+
+
+const val CHECKED_URL = "play.google.com"
+const val URL = "https://pleno-blashy.space"

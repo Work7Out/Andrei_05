@@ -46,6 +46,7 @@ fun NavController(
                 mediaPlayer = mediaPlayer,
                 navController = navController,
                 isSound = state.value.isSoundOn,
+                startScreenState = state.value.startScreenState,
                 event = onEvent
             )
         }

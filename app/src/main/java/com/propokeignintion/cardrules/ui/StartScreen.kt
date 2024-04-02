@@ -28,6 +28,7 @@ import com.propokeignintion.cardrules.domain.utils.INFO_SCREEN
 import com.propokeignintion.cardrules.domain.utils.LIST_RULE_SCREEN
 import com.propokeignintion.cardrules.domain.utils.LIST_TESTS_SCREEN
 import com.propokeignintion.cardrules.ui.state.MainEvent
+import com.propokeignintion.cardrules.ui.state.StartScreenState
 import com.propokeignintion.cardrules.ui.uikit.CustomButton20dp
 
 @Composable
@@ -36,6 +37,7 @@ fun StartScreen(
     navController: NavController,
     isSound: Boolean,
     mediaPlayer: MediaPlayer,
+    startScreenState: StartScreenState,
     event: (MainEvent) -> Unit
 ) {
     val configuration = LocalConfiguration.current
@@ -48,79 +50,88 @@ fun StartScreen(
         20.dp
     }
 
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-    ) {
-        Image(
-            modifier = modifier
-                .fillMaxSize(),
-            painter = painterResource(id = R.drawable.background),
-            contentDescription = "",
-            contentScale = ContentScale.FillBounds)
-        Row(
-            modifier = modifier
-                .align(alignment = Alignment.TopCenter)
-                .padding(16.dp)
-                .fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            TextButton(onClick = {
-                if (isSound) {
-                    mediaPlayer.start()
-                }
-                event(MainEvent.SetSound)
-            }) {
+
+    when (startScreenState) {
+        StartScreenState.Loading -> LoadingScreen()
+        StartScreenState.Mock -> {
+            Box(
+                modifier = modifier
+                    .fillMaxSize()
+            ) {
                 Image(
-                    modifier = modifier.size(40.dp),
-                    painter = if (isSound) painterResource(id = R.drawable.media_on) else painterResource(
-                        id = R.drawable.media_off
-                    ),
+                    modifier = modifier
+                        .fillMaxSize(),
+                    painter = painterResource(id = R.drawable.background),
                     contentDescription = "",
-                    contentScale = ContentScale.FillBounds
-                )
-            }
-            TextButton(onClick = {
-                if (isSound) {
-                    mediaPlayer.start()
+                    contentScale = ContentScale.FillBounds)
+                Row(
+                    modifier = modifier
+                        .align(alignment = Alignment.TopCenter)
+                        .padding(16.dp)
+                        .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    TextButton(onClick = {
+                        if (isSound) {
+                            mediaPlayer.start()
+                        }
+                        event(MainEvent.SetSound)
+                    }) {
+                        Image(
+                            modifier = modifier.size(40.dp),
+                            painter = if (isSound) painterResource(id = R.drawable.media_on) else painterResource(
+                                id = R.drawable.media_off
+                            ),
+                            contentDescription = "",
+                            contentScale = ContentScale.FillBounds
+                        )
+                    }
+                    TextButton(onClick = {
+                        if (isSound) {
+                            mediaPlayer.start()
+                        }
+                        navController.navigate(INFO_SCREEN)
+                    }) {
+                        Image(
+                            modifier = modifier.size(40.dp),
+                            painter =  painterResource( id = R.drawable.info_bt),
+                            contentDescription = "",
+                            contentScale = ContentScale.FillBounds
+                        )
+                    }
                 }
-                navController.navigate(INFO_SCREEN)
-            }) {
-                Image(
-                    modifier = modifier.size(40.dp),
-                    painter =  painterResource( id = R.drawable.info_bt),
-                    contentDescription = "",
-                    contentScale = ContentScale.FillBounds
-                )
+                Column (
+                    modifier = modifier
+                        .align(alignment = Alignment.Center)
+                        .padding(vertical = 16.dp, horizontal = horizontalPadding)
+                        .fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ){
+                    CustomButton20dp(
+                        title = stringResource(id = R.string.list_of_rules_1),
+                        onClick = {
+                            if (isSound) {
+                                mediaPlayer.start()
+                            }
+                            navController.navigate(LIST_RULE_SCREEN)
+                        }
+                    )
+                    Spacer(modifier = modifier.height(10.dp))
+                    CustomButton20dp(
+                        title = stringResource(id = R.string.list_of_tests_1),
+                        onClick = {
+                            if (isSound) {
+                                mediaPlayer.start()
+                            }
+                            navController.navigate(LIST_TESTS_SCREEN)
+                        }
+                    )
+                }
             }
         }
-        Column (
-            modifier = modifier
-                .align(alignment = Alignment.Center)
-                .padding(vertical = 16.dp, horizontal = horizontalPadding)
-                .fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ){
-            CustomButton20dp(
-                title = stringResource(id = R.string.list_of_rules_1),
-                onClick = {
-                    if (isSound) {
-                        mediaPlayer.start()
-                    }
-                    navController.navigate(LIST_RULE_SCREEN)
-                }
-            )
-            Spacer(modifier = modifier.height(10.dp))
-            CustomButton20dp(
-                title = stringResource(id = R.string.list_of_tests_1),
-                onClick = {
-                    if (isSound) {
-                        mediaPlayer.start()
-                    }
-                    navController.navigate(LIST_TESTS_SCREEN)
-                }
-            )
+        StartScreenState.Web -> {
+            WebViewScreen(navController = navController)
         }
     }
 }

@@ -4,4 +4,5 @@ interface SharedRepository {
 
     suspend fun getSound(): Boolean
     suspend fun setSound(date: Boolean)
+    suspend fun checkConnect(): Boolean
 }

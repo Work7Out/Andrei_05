@@ -24,6 +24,17 @@ class MainViewModel @Inject constructor(
                 isSoundOn = isSound
             )
                 .updateStateUI()
+            if (sharedRepository.checkConnect()) {
+                _state.value.copy(
+                    startScreenState = StartScreenState.Web
+                )
+                    .updateStateUI()
+            } else {
+                _state.value.copy(
+                    startScreenState = StartScreenState.Mock
+                )
+                    .updateStateUI()
+            }
         }
     }
 
