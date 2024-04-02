@@ -1,8 +1,9 @@
-package com.propokeignintion.cardrules
+package com.propokeignintion.cardrules.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import com.propokeignintion.cardrules.ui.navigation.NavController
 import com.propokeignintion.cardrules.ui.theme.Andrei_05Theme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -12,7 +13,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Andrei_05Theme {
-
+                NavController()
             }
         }
     }
