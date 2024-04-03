@@ -77,7 +77,7 @@ dependencies {
 
     implementation (libs.accompanist.systemuicontroller)
 
-    implementation("com.onesignal:OneSignal:5.1.7")
+    implementation("com.onesignal:OneSignal:[5.0.0, 5.99.99]")
 
     implementation (libs.okhttp)
 }
