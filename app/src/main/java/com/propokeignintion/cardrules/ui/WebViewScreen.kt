@@ -92,7 +92,7 @@ fun WebViewScreen(
                             val openedUrl = view?.url
                             if (openedUrl==null||openedUrl.contains(CHECKED_URL)) {
                                 navController.navigate(START_SCREEN)}
-                        }
+                        }*/
 
                         override fun onLoadResource(view: WebView?, url: String?) {
                             super.onLoadResource(view, url)
@@ -108,7 +108,7 @@ fun WebViewScreen(
                             if (view?.url==url&&errorCode == ERROR_HOST_LOOKUP) {
                                 navController.navigate(START_SCREEN)
                             }
-                        }*/
+                        }
 
                         override fun shouldOverrideUrlLoading(
                             view: WebView?,
