@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Andrei_05</string>
+    <string name="app_name">Igni</string>
 
     <string name="rule_name_1">Number of cards</string>
     <string name="rule_1">Poker is played with different decks of 32, 36 or 54 cards, but the most commonly used is a standard deck of 52 sheets with equal suits.</string>
