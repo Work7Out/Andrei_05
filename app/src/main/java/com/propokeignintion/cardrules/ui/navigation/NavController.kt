@@ -3,6 +3,7 @@ package com.propokeignintion.cardrules.ui.navigation
 import android.media.MediaPlayer
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -13,6 +14,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.propokeignintion.cardrules.R
 import com.propokeignintion.cardrules.domain.utils.LOADING_SCREEN
+import com.propokeignintion.cardrules.domain.utils.START_SCREEN
+import com.propokeignintion.cardrules.domain.utils.WEB_SCREEN
 import com.propokeignintion.cardrules.ui.InfoScreen
 import com.propokeignintion.cardrules.ui.ListRulesScreen
 import com.propokeignintion.cardrules.ui.ListTestsScreen
@@ -23,6 +26,7 @@ import com.propokeignintion.cardrules.ui.StartScreen
 import com.propokeignintion.cardrules.ui.TestScreen
 import com.propokeignintion.cardrules.ui.WebViewScreen
 import com.propokeignintion.cardrules.ui.state.MainViewModel
+import kotlinx.coroutines.delay
 
 @Composable
 fun NavController(
@@ -41,6 +45,15 @@ fun NavController(
             mediaPlayer?.release()
         }
     }
+    LaunchedEffect(Unit) {
+        delay(1000)
+        if (state.value.isInternet) {
+            navController.navigate(WEB_SCREEN)
+        } else {
+            navController.navigate(START_SCREEN)
+        }
+    }
+
 
     NavHost(navController = navController, startDestination = startDestination) {
         composable(NavigationDestination.StartDestination.destination) {

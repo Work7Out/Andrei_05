@@ -25,17 +25,7 @@ fun LoadingScreen(
     navController: NavHostController,
     isInternet:Boolean,
 ) {
-    LaunchedEffect(Unit) {
-        delay(1000)
-        if (isInternet) {
-            navController.navigate(WEB_SCREEN)
-        } else {
-            navController.navigate(START_SCREEN)
-        }
-    }
-
-
-    Box(
+   Box(
         modifier = modifier
             .fillMaxSize()
     ) {
