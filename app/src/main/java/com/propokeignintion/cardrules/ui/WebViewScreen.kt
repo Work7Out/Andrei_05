@@ -1,5 +1,6 @@
 package com.propokeignintion.cardrules.ui
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -48,6 +49,7 @@ fun WebViewScreen(
     url: String = URL,
     navController: NavController
 ) {
+    val activity = LocalContext.current as Activity
     val activityResultLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -107,6 +109,24 @@ fun WebViewScreen(
                                 navController.navigate(START_SCREEN)
                             }
                         }*/
+
+                        override fun shouldOverrideUrlLoading(
+                            view: WebView?,
+                            request: WebResourceRequest?
+                        ): Boolean {
+                            val urlStr = request?.url.toString()
+                            val uriUri = request?.url
+                            val intent = Intent(Intent.ACTION_VIEW, uriUri)
+                            if (!urlStr.startsWith("http://") &&!urlStr.startsWith("https://")) {
+                                try {
+                                    activity.startActivity(intent)
+                                } catch (e: IOException) {
+                                    e.printStackTrace()
+                                }
+                                return true
+                            }
+                            return false
+                        }
 
                         override fun onReceivedHttpError(
                             view: WebView?,
