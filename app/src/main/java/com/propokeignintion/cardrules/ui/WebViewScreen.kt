@@ -128,14 +128,14 @@ fun WebViewScreen(
                             return false
                         }
 
-                        override fun onReceivedHttpError(
+                        /*override fun onReceivedHttpError(
                             view: WebView?,
                             request: WebResourceRequest?,
                             errorResponse: WebResourceResponse?
                         ) {
                             if (errorResponse==null || errorResponse.statusCode >=400)
                                 navController.navigate(START_SCREEN)
-                        }
+                        }*/
                     }
                     webChromeClient = object : WebChromeClient() {
 

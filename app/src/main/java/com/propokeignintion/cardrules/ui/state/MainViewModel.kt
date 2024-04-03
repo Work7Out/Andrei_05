@@ -1,5 +1,6 @@
 package com.propokeignintion.cardrules.ui.state
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.propokeignintion.cardrules.domain.repository.SharedRepository
@@ -7,6 +8,7 @@ import com.propokeignintion.cardrules.domain.utils.URL
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.io.IOException
 import javax.inject.Inject
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -25,9 +27,9 @@ class MainViewModel @Inject constructor(
     val state = _state.asStateFlow()
 
     init {
-        checkAccess()
         viewModelScope.launch {
             val isSound = sharedRepository.getSound()
+            async{ checkAccess() }.onAwait
             _state.value.copy(
                 isSoundOn = isSound,
                 //isInternet = sharedRepository.checkConnect()
@@ -67,6 +69,7 @@ class MainViewModel @Inject constructor(
             }
 
             override fun onResponse(call: Call, response: Response) {
+                Log.d("test start nav", "response ${response.code}")
                 if (response.code > 400) {
                     _state.value.copy(
                         isInternet = false

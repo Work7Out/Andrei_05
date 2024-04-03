@@ -1,6 +1,7 @@
 package com.propokeignintion.cardrules.ui.navigation
 
 import android.media.MediaPlayer
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -45,14 +46,7 @@ fun NavController(
             mediaPlayer?.release()
         }
     }
-    LaunchedEffect(Unit) {
-        delay(1000)
-        if (state.value.isInternet) {
-            navController.navigate(WEB_SCREEN)
-        } else {
-            navController.navigate(START_SCREEN)
-        }
-    }
+    /**/
 
 
     NavHost(navController = navController, startDestination = startDestination) {
