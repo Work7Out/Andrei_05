@@ -97,7 +97,7 @@ fun WebViewScreen(
                         override fun onLoadResource(view: WebView?, url: String?) {
                             super.onLoadResource(view, url)
                             navController.navigate(START_SCREEN)
-                        }*/
+                        }
 
                         override fun onReceivedError(
                             view: WebView?,
@@ -106,7 +106,9 @@ fun WebViewScreen(
                             failingUrl: String?
                         ) {
                             navController.navigate(START_SCREEN)
-                        }
+                        }*/
+
+
 
                         override fun shouldOverrideUrlLoading(
                             view: WebView?,
@@ -131,7 +133,7 @@ fun WebViewScreen(
                             request: WebResourceRequest?,
                             errorResponse: WebResourceResponse?
                         ) {
-                            if (view?.url==url&&errorResponse?.statusCode != HttpURLConnection.HTTP_OK)
+                            if (errorResponse==null || errorResponse.statusCode >=400)
                                 navController.navigate(START_SCREEN)
                         }
                     }
