@@ -1,23 +1,23 @@
 package com.propokeignintion.cardrules.data.repository
 
+import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import com.propokeignintion.cardrules.domain.repository.SharedRepository
 import com.propokeignintion.cardrules.domain.utils.SHARED_DATA
 import com.propokeignintion.cardrules.domain.utils.SHARED_SOUND
-import com.propokeignintion.cardrules.domain.utils.URL
-import java.net.HttpURLConnection
-import java.net.URL
 import javax.inject.Inject
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 class SharedRepositoryImpl @Inject constructor(
     application: Application
 ) : SharedRepository {
 
     private val sharedPref = application.getSharedPreferences(SHARED_DATA, Context.MODE_PRIVATE)
-
+    private val connectivityManager =
+        application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
     override suspend fun getSound(): Boolean {
         return sharedPref.getBoolean(SHARED_SOUND, true)
@@ -27,29 +27,19 @@ class SharedRepositoryImpl @Inject constructor(
         return sharedPref.edit().putBoolean(SHARED_SOUND, date).apply()
     }
 
+    @SuppressLint("ObsoleteSdkInt")
     override suspend fun checkConnect(): Boolean {
-        return try {
-            val url = URL(URL)
-            val connection = withContext(Dispatchers.IO) {
-                url.openConnection()
-            } as HttpURLConnection
-            connection.requestMethod = "GET"
 
-            connection.connectTimeout = 5000
-            connection.readTimeout = 5000
 
-            val responseCode = connection.responseCode
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val network = connectivityManager.activeNetwork ?: return false
+            val networkCapabilities =
+                connectivityManager.getNetworkCapabilities(network) ?: return false
 
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-
-                connection.disconnect()
-                true
-            } else {
-                connection.disconnect()
-                false
-            }
-        } catch (e: Exception) {
-            false
+            return networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+        } else {
+            val networkInfo = connectivityManager.activeNetworkInfo
+            return networkInfo?.isConnected ?: false
         }
     }
 }

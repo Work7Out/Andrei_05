@@ -62,7 +62,9 @@ fun NavController(
             WebViewScreen(navController = navController)
         }
         composable(NavigationDestination.LoadingDestination.destination) {
-           LoadingScreen(navController = navController)
+           LoadingScreen(
+               navController = navController,
+               isInternet = state.value.isInternet)
         }
 
         composable(

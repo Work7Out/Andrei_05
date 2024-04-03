@@ -78,6 +78,8 @@ dependencies {
     implementation (libs.accompanist.systemuicontroller)
 
     implementation("com.onesignal:OneSignal:5.1.7")
+
+    implementation (libs.okhttp)
 }
 
 kapt{

@@ -14,6 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.propokeignintion.cardrules.R
+import com.propokeignintion.cardrules.domain.utils.START_SCREEN
 import com.propokeignintion.cardrules.domain.utils.WEB_SCREEN
 import com.propokeignintion.cardrules.ui.theme.green
 import kotlinx.coroutines.delay
@@ -22,10 +23,15 @@ import kotlinx.coroutines.delay
 fun LoadingScreen(
     modifier: Modifier = Modifier,
     navController: NavHostController,
+    isInternet:Boolean,
 ) {
     LaunchedEffect(Unit) {
         delay(1000)
-        navController.navigate(WEB_SCREEN)
+        if (isInternet) {
+            navController.navigate(WEB_SCREEN)
+        } else {
+            navController.navigate(START_SCREEN)
+        }
     }
 
 
