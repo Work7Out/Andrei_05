@@ -77,7 +77,7 @@ fun WebViewScreen(
                     )
                     webViewClient = object : WebViewClient() {
 
-                        override fun onPageFinished(view: WebView?, url: String?) {
+                        /*override fun onPageFinished(view: WebView?, url: String?) {
                             super.onPageFinished(view, url)
                             val openedUrl = view?.url
                             if (openedUrl==null||openedUrl.contains(CHECKED_URL)) {
@@ -106,7 +106,7 @@ fun WebViewScreen(
                             if (view?.url==url&&errorCode == ERROR_HOST_LOOKUP) {
                                 navController.navigate(START_SCREEN)
                             }
-                        }
+                        }*/
 
                         override fun onReceivedHttpError(
                             view: WebView?,

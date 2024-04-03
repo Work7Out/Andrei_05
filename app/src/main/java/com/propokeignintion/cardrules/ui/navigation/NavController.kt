@@ -12,19 +12,21 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.propokeignintion.cardrules.R
-import com.propokeignintion.cardrules.domain.utils.START_SCREEN
+import com.propokeignintion.cardrules.domain.utils.LOADING_SCREEN
 import com.propokeignintion.cardrules.ui.InfoScreen
 import com.propokeignintion.cardrules.ui.ListRulesScreen
 import com.propokeignintion.cardrules.ui.ListTestsScreen
+import com.propokeignintion.cardrules.ui.LoadingScreen
 import com.propokeignintion.cardrules.ui.Rule4Screen
 import com.propokeignintion.cardrules.ui.RuleScreen
 import com.propokeignintion.cardrules.ui.StartScreen
 import com.propokeignintion.cardrules.ui.TestScreen
+import com.propokeignintion.cardrules.ui.WebViewScreen
 import com.propokeignintion.cardrules.ui.state.MainViewModel
 
 @Composable
 fun NavController(
-    startDestination: String = START_SCREEN,
+    startDestination: String = LOADING_SCREEN,
     viewModel: MainViewModel = hiltViewModel()
 ) {
     val navController = rememberNavController()
@@ -46,7 +48,6 @@ fun NavController(
                 mediaPlayer = mediaPlayer,
                 navController = navController,
                 isSound = state.value.isSoundOn,
-                startScreenState = state.value.startScreenState,
                 event = onEvent
             )
         }
@@ -56,6 +57,12 @@ fun NavController(
                 isSound = state.value.isSoundOn,
                 mediaPlayer = mediaPlayer
             )
+        }
+        composable(NavigationDestination.WebDestination.destination) {
+            WebViewScreen(navController = navController)
+        }
+        composable(NavigationDestination.LoadingDestination.destination) {
+           LoadingScreen(navController = navController)
         }
         composable(
             NavigationDestination.ListTestsDestination.destination,
