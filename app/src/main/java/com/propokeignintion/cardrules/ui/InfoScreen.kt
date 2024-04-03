@@ -1,7 +1,9 @@
 package com.propokeignintion.cardrules.ui
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.media.MediaPlayer
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -25,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -36,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.propokeignintion.cardrules.R
+import com.propokeignintion.cardrules.domain.utils.URL_POLICY
 import com.propokeignintion.cardrules.ui.theme.black
 import com.propokeignintion.cardrules.ui.theme.brushYellow
 import com.propokeignintion.cardrules.ui.theme.white
@@ -47,6 +51,7 @@ fun InfoScreen(
     isSound: Boolean,
     mediaPlayer: MediaPlayer,
 ) {
+    val context = LocalContext.current
     val configuration = LocalConfiguration.current
     val horizontalPadding = when (configuration.orientation) {
         Configuration.ORIENTATION_LANDSCAPE -> {
@@ -103,7 +108,11 @@ fun InfoScreen(
                         color = white
                     )
                 )
-                TextButton(onClick = {}) {
+                TextButton(onClick = {
+                    val uri = Uri.parse(URL_POLICY)
+                    val intent = Intent(Intent.ACTION_VIEW, uri)
+                    context.startActivity(intent)
+                }) {
                     Image(
                         modifier = modifier.size(40.dp),
                         painter = painterResource(id = R.drawable.system_bt),

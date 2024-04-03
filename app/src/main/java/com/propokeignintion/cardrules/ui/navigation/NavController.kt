@@ -64,6 +64,7 @@ fun NavController(
         composable(NavigationDestination.LoadingDestination.destination) {
            LoadingScreen(navController = navController)
         }
+
         composable(
             NavigationDestination.ListTestsDestination.destination,
         ) {

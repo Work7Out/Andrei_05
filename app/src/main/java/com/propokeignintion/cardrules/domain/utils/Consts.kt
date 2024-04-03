@@ -17,3 +17,5 @@ const val SHARED_SOUND = "shared_sound"
 
 const val CHECKED_URL = "play.google.com"
 const val URL = "https://pleno-blashy.space"
+
+const val URL_POLICY = "https://doc-hosting.flycricket.io/igni-privacy-policy/3145c367-55c9-4832-a3df-a5d35f83d5ce/privacy"
